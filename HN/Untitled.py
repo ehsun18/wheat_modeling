@@ -38,8 +38,11 @@ import sktime.datasets
 # # !pip3 install packaging==24.1
 from sktime.datasets import load_from_tsfile_to_dataframe
 
-
 # %%
+import datasets
+
+datasets.__version__
+
 
 # %%
 def surface_area_of_cube(edge_length: float) -> str:
@@ -75,6 +78,9 @@ print (test_ts)
 df_test, labels_test = sktime.datasets.load_from_tsfile_to_dataframe(data_paths[ii] + "/"+ test_ts, 
                                                                       return_separate_X_and_y=True, 
                                                                       replace_missing_vals_with='NaN')
+
+# %%
+from sktime.datasets import load_from_tsfile_to_dataframe
 
 # %%
 

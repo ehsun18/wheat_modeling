@@ -53,8 +53,55 @@ average_and_seperate_weekly = pd.read_pickle(filename)
 average_and_seperate_weekly.keys()
 
 # %%
-
-variables_dict = variables_dict["variables_abb_dict"]
-variables_dict
+separate_varieties_weekly = average_and_seperate_weekly["separate_varieties_weekly"]
+separate_varieties_weekly.head(2)
 
 # %%
+import re
+
+col_names = list(separate_varieties_weekly.columns)
+col_names[:4]
+
+# %%
+## detect columns that start with a digit
+## so we can extract them and put them in a list as time series.
+pattern = r"^\d"
+digital_columns = [s for s in col_names if re.match(pattern, s)]
+digital_columns[:4]
+
+# %%
+print (f"{len(digital_columns) = }")
+print (f"{len(col_names) = }")
+
+# %%
+non_digital_columns = [s for s in col_names if not(re.match(pattern, s))]
+non_digital_columns[:4]
+
+# %%
+# count number of different variables
+variables_list = [s.split("_")[1] for s in digital_columns]
+variables_list = list(set(variables_list))
+variables_list.remove("dtr.1")
+variables_list
+
+# %%
+rows = len(separate_varieties_weekly)
+cols = len(non_digital_columns) + len(variables_list)
+separate_vars_weekly_TS = pd.DataFrame(np.zeros((rows, cols)))
+separate_vars_weekly_TS.head(2)
+
+# %%
+columns = non_digital_columns + variables_list
+separate_vars_weekly_TS.columns = columns
+separate_vars_weekly_TS.head(2)
+
+# %% [markdown]
+# ## Populate dataframe
+
+# %%
+separate_vars_weekly_TS[non_digital_columns] = separate_varieties_weekly[non_digital_columns]
+separate_vars_weekly_TS.head(2)
+
+# %%
+for a_variable in variables_list:
+    
