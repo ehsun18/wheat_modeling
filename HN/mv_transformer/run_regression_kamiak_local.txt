@@ -1,0 +1,14 @@
+
+
+
+python src/main.py --output_dir path/to/experiments --comment "regression from Scratch" --name $1_fromScratch_Regression --records_file Regression_records.xls --data_dir path/to/Datasets/Regression/$1/ --data_class tsra --pattern TRAIN --val_pattern TEST --epochs 100 --lr 0.001 --optimizer RAdam  --pos_encoding learnable --task regression
+
+
+
+
+python src/main.py --output_dir /Users/hn/Documents/01_research_data/MVTS_transformers/Monash_UEA_UCR_Regression_Archive/experiments --comment "regression from Scratch LiveFuelMoistureContent" --name LiveFuelMoistureContent_fromScratch_Regression --records_file Regression_records.xls --data_dir /Users/hn/Documents/01_research_data/MVTS_transformers/Monash_UEA_UCR_Regression_Archive/LiveFuelMoistureContent/ --data_class tsra --pattern TRAIN --val_pattern TEST --epochs 100 --lr 0.001 --optimizer RAdam  --pos_encoding learnable --task regression
+
+
+
+
+python src/main.py --output_dir /data/project/agaid/h.noorazar/Ehsan/MVTS_transformers/Monash_UEA_UCR_Regression_Archive/experiments --comment "regression from Scratch LiveFuelMoistureContent" --name LiveFuelMoistureContent_fromScratch_Regression --records_file Regression_records.xls --data_dir /data/project/agaid/h.noorazar/Ehsan/MVTS_transformers/Monash_UEA_UCR_Regression_Archive/LiveFuelMoistureContent/ --data_class tsra --pattern TRAIN --val_pattern TEST --epochs 100 --lr 0.001 --optimizer RAdam  --pos_encoding learnable --task regression
