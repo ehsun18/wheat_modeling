@@ -80,12 +80,17 @@ df_test, labels_test = sktime.datasets.load_from_tsfile_to_dataframe(data_paths[
                                                                       replace_missing_vals_with='NaN')
 
 # %%
-from sktime.datasets import load_from_tsfile_to_dataframe
+data_paths[ii] + "/"+ test_ts
+
+# %%
+A = sktime.datasets.load_from_tsfile_to_dataframe(data_paths[ii] + "/"+ test_ts, 
+                                                                      return_separate_X_and_y=False, 
+                                                                      replace_missing_vals_with='NaN')
 
 # %%
 
 # %%
-df["dim_0"][1300]
+type(df["dim_0"][0])
 
 # %%
 print (f"{len(labels) = }")
